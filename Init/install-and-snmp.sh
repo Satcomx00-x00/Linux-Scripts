@@ -36,7 +36,7 @@ done
 
 # Step 3: Profiling and tracing tools
 echo "Installing profiling and tracing tools..."
-profiling_tools=("linux-tools-common" "linux-tools-$(uname -r)" "bpfcc-tools" "bpftrace" "trace-cmd")
+profiling_tools=("bpfcc-tools" "bpftrace" "trace-cmd")
 for tool in "${profiling_tools[@]}"; do
     install_if_not_installed $tool
 done
@@ -93,4 +93,5 @@ ufw allow 161/udp
 ufw allow ssh
 ufw --force enable
 
+sudo update-initramfs -u
 echo "All packages have been installed and SNMP configured successfully."
